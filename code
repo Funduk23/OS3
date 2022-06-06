@@ -1,0 +1,47 @@
+using System;
+using System.Threading;
+
+
+namespace ConsoleApplication1
+{
+
+    class Program
+    {
+        static void Creator(var numbers)
+        {
+            if (numbers.Count<=80){
+                Random rand = new Random();
+                numbers.Add(rand);
+            }
+            else {
+                sleep;
+            }
+        }
+        static void Ubit(var numbers)
+        {
+            numbers.RemoveAt(numbers.Count - 1);
+        }
+        static void Main()
+        {
+            Thread thread1 = new Thread(Creator);
+            Thread thread2 = new Thread(Creator);
+            Thread thread3 = new Thread(Creator);
+            Thread Tthread1 = new Thread(Ubit);
+            Thread Tthread2 = new Thread(Ubit);
+            var numbers = new List<int>();
+            ConsoleKey key = Console.Readkey().Key;
+            if (key == ConsoleKey.Q)
+            {
+                thread1.Join();
+                thread2.Join();
+                thread3.Join();
+                if (numbers.Count==0)
+                {
+                    Tthread1.Join();
+                    Tthread2.Join();
+                }
+            }
+
+        }
+    }
+}
